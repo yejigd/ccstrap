@@ -27,8 +27,6 @@
 
 ## 퍼블리싱 가이드 ✍
 자세한 내용은 [PMG 퍼블리싱 가이드 컨벤션 (https://pmgkr.github.io/ccstrap/convention/)](https://pmgkr.github.io/ccstrap/convention/) 📋
-> - 2021.05 개정 전 버전: file://192.168.1.240/data/+Publishing/++guide_210210/index.html
-> - HTML5 & CSS 핵심 정리: <https://drive.google.com/file/d/17gAS-Nzqc0YGvT9IoMlWuGC3LVNjh_G9/view?usp=sharing>   
 
 
 * ie는 10이상 대응(Internet Explorer 11 최종 지원 종료: 2022년 6월 15일)
