@@ -1,0 +1,271 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1.0, width=device-width">
+ 
+<title>CCstrap__Page Grid</title>
+<meta name="keywords" content="PMG Publishing Guide">
+<meta name="description" content="PMG Publishing Guide">
+ 
+<meta property="og:type" content="website">
+<meta property="og:title" content="CCstrap__Page Grid">
+<meta property="og:description" content="CCstrap__Page Grid">
+<meta property="og:url" content="https://pmgkr.github.io/ccstrap/convention/">
+<meta property="og:image" content="">
+ 
+<link rel="icon" href="../convention/images/favicon.ico?1" type="image/x-icon">
+<link rel="shortcut icon" href="#" type="image/x-icon">
+
+<!-- PAGE CSS -->
+<link href="../convention/css/reset.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="../convention/css/highlight_default.css" rel="stylesheet">
+<link href="../convention/css/night-owl.css" rel="stylesheet">
+<link href="./css/default.css" rel="stylesheet">
+<link href="../convention/css/guide.css" rel="stylesheet">
+
+<!-- JS -->
+<script src="../convention/js/jquery-3.5.1.min.js"></script>
+<script src="../convention/js/highlight.min.js"></script>
+<script src="../convention/js/highlightjs-line-numbers.js"></script>
+<script src="../convention/js/main.js"></script>
+</head>
+<body>
+<div class="wrap">
+    <header>
+        <h1>CCstrap Page Grid</h1>
+        <span class="date">ver 1.0 _ 2021.07.29</span>
+    </header>
+    <div data-include="header.html"></div>
+    <div class="container">
+        <section class="section">
+            <h2>Grid Intro</h2>
+            <p>CC스트랩에서 사용하는 그리드(Grid)의 예제입니다. CC스트랩은 부트스트랩의 그리드를 참고하여 작업되었으며, <strong>총 5개의 분기점</strong>을 가지고 있습니다.
+            그리드(Grid) 시스템은 정돈된 레이아웃을 제공하기 위해 만들어졌습니다. 통일성과 일관성이 있고, 반응형 웹 작업 시 해상도 대응이 용이하다는 장점을 갖고 있습니다.
+            CC스트랩은 PC 데스크탑 (일반 모니터)를 디폴트로 사용하며, 컬럼수는 12개를 사용합니다. 모바일 분기만 6개의 컬럼을 사용하고 있습니다.
+
+            IE 크로스브라우징 이슈로 <code class="code">flex</code>가 아닌 <code class="code">float</code> 스타일로 작성되었으니 작업 시 참고 바랍니다. 
+            각각의 분기처리는 아래의 리스트에 정리되어있습니다.
+            </p>
+            <ul>
+                <li><strong>모바일 ( ~ 480px)</strong>
+                    <ul>
+                        <li>컬럼 수 : 6</li>
+                        <li>그리드 적용 : 분기점보다 작거나 같으면 적용 <code class="code">@media screen and (max-width:480px)</code></li>
+                        <li>클래스 : .col_sm_1 ~ .col_sm_6 (_pull, _push, _offset)</li>
+                    </ul>
+                </li>
+                <li><strong>태블릿 (481 ~ 768px)</strong>
+                    <ul>
+                        <li>컬럼 수 : 12</li>
+                        <li>그리드 적용 : 분기점보다 작거나 같으면 적용 <code class="code">@media screen and (max-width:768px)</code></li>
+                        <li>클래스 : .col_md_1 ~ .col_md_12 (_pull, _push, _offset)</li>
+                    </ul>
+                </li>
+                <li><strong>작은 데스크탑 or 큰 태블릿 (769 ~ 1199px)</strong>
+                    <ul>
+                        <li>컬럼 수 : 12</li>
+                        <li>그리드 적용 : 분기점보다 작거나 같으면 적용 <code class="code">@media screen and (max-width:1199px)</code></li>
+                        <li>클래스 : .col_lg_1 ~ .col_lg_12 (_pull, _push, _offset)</li>
+                    </ul>
+                </li>
+                <li><strong>데스크탑 (1200 ~ 1920px) <span class="pur">&lt;default&gt;</span></strong>
+                    <ul>
+                        <li>컬럼 수 : 12</li>
+                        <li>그리드 적용 : 기본 적용 (다른 분기점에 속하지 않을 때)</li>
+                        <li>클래스 : .col_xl_1 ~ .col_xl_12 (_pull, _push, _offset)</li>
+                    </ul>
+                </li>
+                <li><strong>와이드 (1921px ~)</strong>
+                    <ul>
+                        <li>컬럼 수 : 12</li>
+                        <li>그리드 적용 : 분기점보다 크면 적용 <code class="code">@media screen and (min-width:1921px)</code></li>
+                        <li>클래스 : .col_wide_1 ~ .col_wide_12 (_pull, _push, _offset)</li>
+                    </ul>
+                </li>
+            </ul>
+            <h3>Grid Guide</h3>
+            <p>현재 예제의 그리드는 여백(gutter/margin) 없이 모든 컬럼이 붙어있는 예제입니다. 추후 작업할 때에는 시안에 맞춰 <code class="code vio">/scss/_grid.scss</code>에서 여백을 추가해 작업해야합니다.
+            실제 사용 시에는 <code class="code">&lt;div class="row"&gt;</code> 부모 아래에 <code class="code">&lt;div class="col_{size}_{num}"&gt;</code>로 선언합니다.
+            <code class="code">.col_xl_{num}</code>와 <code class="code">.col_md_{num}</code>를 혼용하면 PC 환경에서는 <code class="code">xl_{num}</code> 만큼 차지하고, 태블릿 환경에서 <code class="code">md_{num}</code> 만큼 차지합니다.
+
+            <small class="gry">※ 예제페이지를 위해 <code class="code">.row</code>에 <code class="code pur">.grid_sample</code> 이라는 클래스를 추가하여, 컬럼에 스타일을 추가했으나 실제 그리드 시스템의 컬럼에는 배경과 보더같은 스타일이 따로 지정되어있지 않습니다.</small>
+            </p>
+            <div class="sec__example">
+                <div class="row grid_sample">
+                    <div class="col_xl_4">col_xl_4</div>
+                    <div class="col_xl_4">col_xl_4</div>
+                    <div class="col_xl_4">col_xl_4</div>
+                </div>
+                <div class="row grid_sample">
+                    <div class="col_xl_2 col_md_4">col_xl_2 col_md_4</div>
+                    <div class="col_xl_2 col_md_4">col_xl_2 col_md_4</div>
+                    <div class="col_xl_2 col_md_4">col_xl_2 col_md_4</div>
+                    <div class="col_xl_2 col_md_4">col_xl_2 col_md_4</div>
+                    <div class="col_xl_2 col_md_4">col_xl_2 col_md_4</div>
+                    <div class="col_xl_2 col_md_4">col_xl_2 col_md_4</div>
+                </div>
+                <div class="row grid_sample">
+                    <div class="col_xl_1 col_lg_2 col_md_6">col_xl_1 col_lg_2 col_md_6</div>
+                    <div class="col_xl_1 col_lg_2 col_md_6">col_xl_1 col_lg_2 col_md_6</div>
+                    <div class="col_xl_1 col_lg_2 col_md_6">col_xl_1 col_lg_2 col_md_6</div>
+                    <div class="col_xl_1 col_lg_2 col_md_6">col_xl_1 col_lg_2 col_md_6</div>
+                    <div class="col_xl_1 col_lg_2 col_md_6">col_xl_1 col_lg_2 col_md_6</div>
+                    <div class="col_xl_1 col_lg_2 col_md_6">col_xl_1 col_lg_2 col_md_6</div>
+                    <div class="col_xl_1 col_lg_2 col_md_6">col_xl_1 col_lg_2 col_md_6</div>
+                    <div class="col_xl_1 col_lg_2 col_md_6">col_xl_1 col_lg_2 col_md_6</div>
+                    <div class="col_xl_1 col_lg_2 col_md_6">col_xl_1 col_lg_2 col_md_6</div>
+                    <div class="col_xl_1 col_lg_2 col_md_6">col_xl_1 col_lg_2 col_md_6</div>
+                    <div class="col_xl_1 col_lg_2 col_md_6">col_xl_1 col_lg_2 col_md_6</div>
+                    <div class="col_xl_1 col_lg_2 col_md_6">col_xl_1 col_lg_2 col_md_6</div>
+                </div>
+            </div>
+            <pre>
+                <code class="html">
+    &lt;div class="row grid_sample">
+        &lt;div class="col_xl_4">col_xl_&lt;/div>
+        &lt;div class="col_xl_4">col_xl_&lt;/div>
+        &lt;div class="col_xl_4">col_xl_&lt;/div>
+    &lt;/div>
+    &lt;div class="row grid_sample">
+        &lt;div class="col_xl_2 col_md_4">col_xl_2 col_md_4&lt;/div>
+        &lt;div class="col_xl_2 col_md_4">col_xl_2 col_md_4&lt;/div>
+        &lt;div class="col_xl_2 col_md_4">col_xl_2 col_md_4&lt;/div>
+        &lt;div class="col_xl_2 col_md_4">col_xl_2 col_md_4&lt;/div>
+        &lt;div class="col_xl_2 col_md_4">col_xl_2 col_md_4&lt;/div>
+        &lt;div class="col_xl_2 col_md_4">col_xl_2 col_md_4&lt;/div>
+    &lt;/div>
+    &lt;div class="row grid_sample">
+        &lt;div class="col_xl_1 col_lg_2 col_md_6">col_xl_1 col_lg_2 col_md_6&lt;/div>
+        &lt;div class="col_xl_1 col_lg_2 col_md_6">col_xl_1 col_lg_2 col_md_6&lt;/div>
+        &lt;div class="col_xl_1 col_lg_2 col_md_6">col_xl_1 col_lg_2 col_md_6&lt;/div>
+        &lt;div class="col_xl_1 col_lg_2 col_md_6">col_xl_1 col_lg_2 col_md_6&lt;/div>
+        &lt;div class="col_xl_1 col_lg_2 col_md_6">col_xl_1 col_lg_2 col_md_6&lt;/div>
+        &lt;div class="col_xl_1 col_lg_2 col_md_6">col_xl_1 col_lg_2 col_md_6&lt;/div>
+        &lt;div class="col_xl_1 col_lg_2 col_md_6">col_xl_1 col_lg_2 col_md_6&lt;/div>
+        &lt;div class="col_xl_1 col_lg_2 col_md_6">col_xl_1 col_lg_2 col_md_6&lt;/div>
+        &lt;div class="col_xl_1 col_lg_2 col_md_6">col_xl_1 col_lg_2 col_md_6&lt;/div>
+        &lt;div class="col_xl_1 col_lg_2 col_md_6">col_xl_1 col_lg_2 col_md_6&lt;/div>
+        &lt;div class="col_xl_1 col_lg_2 col_md_6">col_xl_1 col_lg_2 col_md_6&lt;/div>
+        &lt;div class="col_xl_1 col_lg_2 col_md_6">col_xl_1 col_lg_2 col_md_6&lt;/div>
+    &lt;/div>
+                </code>
+            </pre>
+            <p>하나의 <code class="code">.row</code>에 12개의 컬럼수를 초과해 작성한다면 새로운 라인으로 줄바꿈이 됩니다.</p>
+            <div class="sec__example">
+                <div class="row grid_sample">
+                    <div class="col_xl_6">col_xl_6</div>
+                    <div class="col_xl_3">col_xl_3</div>
+                    <div class="col_xl_10">col_xl_10</div>
+                </div>
+            </div>
+            <pre>
+                <code class="html">
+    &lt;div class="row grid_sample">
+        &lt;div class="col_xl_6">col_xl_6&lt;/div>
+        &lt;div class="col_xl_3">col_xl_3&lt;/div>
+        &lt;div class="col_xl_10">col_xl_10&lt;/div>
+    &lt;/div>
+                </code>
+            </pre>
+            <h3>Offsetting columns</h3>
+            <p><code class="code">.col_{size}_offset_{num}</code> 클래스를 사용하면 컬럼을 오른쪽으로 이동시킬 수 있습니다. 해당 클래스에 적은 <code class="code vio">{num}</code>이 가진 너비만큼 왼쪽 여백을 늘려, 해당 컬럼을 오른쪽으로 이동시킵니다.</p>
+            <div class="sec__example">
+                <div class="row grid_sample">
+                    <div class="col_xl_4">col_xl_4</div>
+                    <div class="col_xl_4 col_xl_offset_4">col_xl_4 col_xl_offset_4</div>
+                </div>
+                <div class="row grid_sample">
+                    <div class="col_xl_3 col_xl_offset_3">col_xl_3 col_xl_offset_3</div>
+                    <div class="col_xl_3 col_xl_offset_3">col_xl_3 col_xl_offset_3</div>
+                </div>
+                <div class="row grid_sample">
+                    <div class="col_xl_5 col_xl_offset_2">col_xl_5 col_xl_offset_2</div>
+                </div>
+            </div>
+            <pre>
+                <code class="html">
+    &lt;div class="row grid_sample">
+        &lt;div class="col_xl_4">col_xl_4&lt;/div>
+        &lt;div class="col_xl_4 col_xl_offset_4">col_xl_4 col_xl_offset_4&lt;/div>
+    &lt;/div>
+    &lt;div class="row grid_sample">
+        &lt;div class="col_xl_3 col_xl_offset_3">col_xl_3 col_xl_offset_3&lt;/div>
+        &lt;div class="col_xl_3 col_xl_offset_3">col_xl_3 col_xl_offset_3&lt;/div>
+    &lt;/div>
+    &lt;div class="row grid_sample">
+        &lt;div class="col_xl_5 col_xl_offset_2">col_xl_5 col_xl_offset_2&lt;/div>
+    &lt;/div>
+                </code>
+            </pre>
+            <h3>Nesting columns</h3>
+            <p>그리드 시스템을 사용하여 컬럼 안에 컬럼이 들어가는 방식으로 그리드를 중첩시켜 사용할 수 있습니다. 
+            <code class="code">.row</code>는 상위 부모의 너비만큼을 차지하며 자식인 컬럼의 <code class="code vio">{num}</code>이 차지하는 만큼의 너비를 배분합니다.</p>
+            <div class="sec__example">
+                <div class="row grid_sample">
+                    <div class="col_xl_10">
+                        Level 1 : col_xl_10
+                        <div class="row">
+                            <div class="col_xl_4">Level 2 : col_xl_4</div>
+                            <div class="col_xl_4">Level 2 : col_xl_4</div>
+                            <div class="col_xl_4">Level 2 : col_xl_4</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <pre>
+                <code class="html">
+    &lt;div class="row grid_sample">
+        &lt;div class="col_xl_10">
+            Level 1 : col_xl_10
+            &lt;div class="row">
+                &lt;div class="col_xl_4">Level 2 : col_xl_4&lt;/div>
+                &lt;div class="col_xl_4">Level 2 : col_xl_4&lt;/div>
+                &lt;div class="col_xl_4">Level 2 : col_xl_4&lt;/div>
+            &lt;/div>
+        &lt;/div>
+    &lt;/div>
+                </code>
+            </pre>
+            <h3>Column ordering</h3>
+            <p><code class="code">.col_{size}_push_{num}</code> 클래스와 <code class="code">.col_{size}_pull_{num}</code> 클래스를 이용해 그리드의 컬럼 순서를 변경할 수 있습니다. 
+            <code class="code">push</code> 클래스는 입력한 <code class="code vio">{num}</code> 만큼 왼쪽에서 밀리고, <code class="code">pull</code> 클래스는 <code class="code vio">{num}</code> 만큼 왼쪽으로 당겨집니다. (오른쪽에서 밀림)</p>
+            <div class="sec__example">
+                <div class="row grid_sample">
+                    <div class="col_xl_3 col_xl_push_9">col_xl_3 col_xl_push_9</div>
+                    <div class="col_xl_9 col_xl_pull_3">col_xl_9 col_xl_pull_3</div>
+                </div>
+                <div class="row grid_sample">
+                    <div class="col_xl_8 col_xl_push_4">col_xl_8 col_xl_push_4</div>
+                    <div class="col_xl_4 col_xl_pull_8">col_xl_4 col_xl_pull_8</div>
+                </div>
+            </div>
+            <pre>
+                <code class="html">
+    &lt;div class="row grid_sample">
+        &lt;div class="col_xl_3 col_xl_push_9">col_xl_3 col_xl_push_9&lt;/div>
+        &lt;div class="col_xl_9 col_xl_pull_3">col_xl_9 col_xl_pull_3&lt;/div>
+    &lt;/div>
+    &lt;div class="row grid_sample">
+        &lt;div class="col_xl_8 col_xl_push_4">col_xl_8 col_xl_push_4&lt;/div>
+        &lt;div class="col_xl_4 col_xl_pull_8">col_xl_4 col_xl_pull_8&lt;/div>
+    &lt;/div>
+                </code>
+            </pre>
+        </section>
+    </div>
+</div>
+<script>
+hljs.initHighlightingOnLoad();
+$(document).ready(function() {
+    $('code.hljs').each(function(i, block) {
+        hljs.lineNumbersBlock(block);
+    });
+});
+</script>
+</body>
+</html>

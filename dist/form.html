@@ -1,0 +1,569 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1.0, width=device-width">
+
+<title>CCstrap__Page Form</title>
+<meta name="keywords" content="PMG Publishing Guide">
+<meta name="description" content="PMG Publishing Guide">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="CCstrap__Page Form">
+<meta property="og:description" content="CCstrap__Page Form">
+<meta property="og:url" content="https://pmgkr.github.io/ccstrap/convention/">
+<meta property="og:image" content="">
+
+<link rel="icon" href="../convention/images/favicon.ico?1" type="image/x-icon">
+<link rel="shortcut icon" href="#" type="image/x-icon">
+
+<!-- PAGE CSS -->
+<link href="../convention/css/reset.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+<link href="../convention/css/highlight_default.css" rel="stylesheet">
+<link href="../convention/css/night-owl.css" rel="stylesheet">
+<link href="./css/default.css" rel="stylesheet">
+<link href="../convention/css/guide.css" rel="stylesheet">
+
+<!-- JS -->
+<script src="../convention/js/jquery-3.5.1.min.js"></script>
+<script src="../convention/js/highlight.min.js"></script>
+<script src="../convention/js/highlightjs-line-numbers.js"></script>
+<script src="../convention/js/main.js"></script>
+</head>
+
+<body>
+    <div class="wrap">
+        <header>
+            <h1>CCstrap Form Guide</h1>
+            <span class="date">ver 1.0 _ 2021.06.07</span>
+        </header>
+        <div data-include="header.html"></div>
+        <div class="container">
+            <section class="section">
+                <h2>Form Intro</h2>
+                <p>폼 구성 요소를 정리한 가이드입니다. 다양한 타입의 <code class="code">input</code> <code class="code">select</code> <code class="code">textarea</code> 등을 상태값에 맞게끔 사용할 수 있습니다.</p>
+
+                <h3>Text field Examples</h3>
+                <p><code class="code">text</code> <code class="code">password</code> <code class="code">email</code> 등에 사용할 수 있는 텍스트 타입의 예제입니다. 빈 값의 input부터 <code class="code gry">disabled</code> <code class="code blu">focus</code> <code class="code grn">valid</code> <code class="code red">error(required)</code>등 상태마다 스타일이 달라집니다.</p>
+                <div class="sec__example">
+                    <div class="input__field">
+                        <span class="input__field__ttl">Default empty</span>
+                        <span class="input__field__box">
+                            <label for="text1">Name</label>
+                            <input type="text" id="text1" placeholder="Name" class="input">
+                        </span>
+                    </div>
+                    <div class="input__field">
+                        <span class="input__field__ttl">Disabled empty</span>
+                        <span class="input__field__box">
+                            <label for="text2">Name</label>
+                            <input type="text" id="text2" placeholder="Name" class="input disabled" disabled>
+                        </span>
+                    </div>
+                    <div class="input__field">
+                        <span class="input__field__ttl">Input</span>
+                        <span class="input__field__box">
+                            <label for="text2_1">Name</label>
+                            <input type="text" id="text2_1" value="홍길동" placeholder="Name" class="input">
+                        </span>
+                    </div>
+                    <div class="input__field">
+                        <span class="input__field__ttl">Focus</span>
+                        <span class="input__field__box">
+                            <label for="text3">Name</label>
+                            <input type="text" id="text3" value="홍길동" placeholder="Name" class="input focus">
+                        </span>
+                    </div>
+                    <div class="input__field">
+                        <span class="input__field__ttl">Valid</span>
+                        <span class="input__field__box">
+                            <label for="text4">ID</label>
+                            <input type="text" id="text4" value="pmgkorea" placeholder="ID" class="input valid">
+                            <span class="message valid">사용할 수 있는 아이디입니다.</span>
+                        </span>
+                    </div>
+                    <div class="input__field">
+                        <span class="input__field__ttl">Error</span>
+                        <span class="input__field__box">
+                            <label for="text5">Name</label>
+                            <input type="text" id="text5" value="" placeholder="Name" required class="input invalid">
+                            <span class="message block invalid">※ 필수 입력 사항입니다.</span>
+                        </span>
+                    </div>
+                </div>
+                <pre>
+                    <code class="html">
+    &lt;div class="input__field">
+        &lt;span class="input__field__ttl">Default empty&lt;/span>
+        &lt;span class="input__field__box">
+            &lt;label for="text1">Name&lt;/label>
+            &lt;input type="text" id="text1" placeholder="Name" class="input">
+        &lt;/span>
+    &lt;/div>
+    &lt;div class="input__field">
+        &lt;span class="input__field__ttl">Disabled empty&lt;/span>
+        &lt;span class="input__field__box">
+            &lt;label for="text2">Name&lt;/label>
+            &lt;input type="text" id="text2" placeholder="Name" class="input" disabled>
+        &lt;/span>
+    &lt;/div>
+                    </code>
+                </pre>
+                <p>부모인 <code class="code">input__field</code> 안에는 <code class="code">input__field__ttl</code>과 <code class="code">input__field__box</code>가 담겨있습니다.
+                <code class="code">input__field__ttl</code> 은 선택적 요소이며, box안에는 <code class="code">label</code>과 <code class="code">input</code>이 담겨있습니다. <strong>text field</strong>는 <code class="code vio">.input</code> 클래스를 기본으로 갖고있어야 합니다.
+                
+                <code class="code">.message</code> 요소를 이용해 추가 텍스트를 작성할 수 있으며 기본적으로 inline-block 속성을 갖고있습니다. <small class="gry">(※ block 클래스를 추가하면 block으로 사용할 수 있습니다.)</small> 
+                input과 마찬가지로 <strong>valid, invalid</strong> 등과 같은 상태 스타일을 클래스로 지원합니다.</p>
+
+                <h3>Inside labels & Floating labels</h3>
+                <p><code class="code">label</code> 태그가 타이틀 요소를 대신하여 html tag 안에 들어가있는 예제입니다. 위 예제에선 <code class="code">label</code> 요소가 <code class="code">input</code> 태그보다 앞서 불러졌지만, 이번 예제에선 <code class="code">label</code> 요소가 뒤에 자리하게 됩니다.</p>
+                <div class="sec__example">
+                    <div class="input__field">
+                        <span class="input__field__box inside">
+                            <input type="text" name="name" id="inside1" placeholder="홍길동" class="input">
+                            <label for="inside1">Name</label>
+                            <span class="message">Default inside label</span>
+                        </span>
+                    </div>
+                    <div class="input__field">
+                        <span class="input__field__box inside">
+                            <input type="text" name="name" id="inside1" placeholder="홍길동" class="input" disabled>
+                            <label for="inside1">Name</label>
+                            <span class="message">Disabled inside label</span>
+                        </span>
+                    </div>
+                    <div class="input__field">
+                        <span class="input__field__box inside non_bg">
+                            <input type="text" name="name" id="inside3" placeholder="홍길동" class="input">
+                            <label for="inside3">Name</label>
+                            <span class="message">Non Background inside label</span>
+                        </span>
+                    </div>
+                    <div class="input__field">
+                        <span class="input__field__box inside non_bg">
+                            <input type="text" name="name" id="inside4" placeholder="홍길동" class="input" disabled>
+                            <label for="inside4">Name</label>
+                            <span class="message">Non Background inside label (Disabled)</span>
+                        </span>
+                    </div>
+                </div>
+                <pre>
+                    <code class="html">
+    &lt;div class="input__field">
+        &lt;span class="input__field__box inside">
+            &lt;input type="text" name="name" id="inside1" placeholder="홍길동" class="input">
+            &lt;label for="inside1">Name&lt;/label>
+            &lt;span class="message">Default inside label&lt;/span>
+        &lt;/span>
+    &lt;/div>
+    &lt;div class="input__field">
+        &lt;span class="input__field__box inside">
+            &lt;input type="text" name="name" id="inside1" placeholder="홍길동" class="input" disabled>
+            &lt;label for="inside1">Name&lt;/label>
+            &lt;span class="message">Disabled inside label&lt;/span>
+        &lt;/span>
+    &lt;/div>
+    &lt;div class="input__field">
+        &lt;span class="input__field__box inside non_bg">
+            &lt;input type="text" name="name" id="inside3" placeholder="홍길동" class="input">
+            &lt;label for="inside3">Name&lt;/label>
+            &lt;span class="message">Non Background inside label&lt;/span>
+        &lt;/span>
+    &lt;/div>
+    &lt;div class="input__field">
+        &lt;span class="input__field__box inside non_bg">
+            &lt;input type="text" name="name" id="inside4" placeholder="홍길동" class="input" disabled>
+            &lt;label for="inside4">Name&lt;/label>
+            &lt;span class="message">Non Background inside label (Disabled)&lt;/span>
+        &lt;/span>
+    &lt;/div>
+                    </code>
+                </pre>
+                <p>아래 예제는 <code class="code">label</code> 태그가 input 태그 안에 위치해있다, 포커스되거나 값이 입력되면 위로 떠오르는 예제입니다. 
+                javascript가 아닌 CSS로 <code class="code blu">:placeholder-shown</code> 가상클래스 요소를 사용하기 떄문에 <code class="code">input</code> 태그 안에 placeholder 값이 필수로 있어야 합니다. 
+                <small class="gry">※ 이 예제는 textarea에서 사용할 때 스크롤이 생기게 되면 value의 내용이 label과 겹치는 이슈가 발생합니다.</small>
+                <small class="vio">※ valid와 invalid 등의 상태 클래스는 javascript로 input의 value가 바뀌었을 때를 체크해서 클래스를 add/remove 해서 사용하길 권장합니다!</small></p>
+                <div class="sec__example">
+                    <div class="input__field">
+                        <span class="input__field__box floating">
+                            <input type="text" name="name" id="floating1" class="input" placeholder="floating">
+                            <label for="floating1">Name</label>
+                        </span>
+                    </div>
+                    <div class="input__field">
+                        <span class="input__field__box floating">
+                            <input type="password" name="password" id="floating2" class="input" placeholder="floating">
+                            <label for="floating2">Password</label>
+                        </span>
+                    </div>
+                    <div class="input__field">
+                        <span class="input__field__box floating invalid">
+                            <input type="email" name="email" id="floating3" value="test@test.com" class="input invalid" placeholder="floating">
+                            <label for="floating3">email</label>
+                        </span>
+                    </div>
+                    <div class="input__field">
+                        <span class="input__field__box floating invalid">
+                            <input type="text" name="hphone" id="floating4" value="010-1234-5678" class="input valid" placeholder="floating">
+                            <label for="floating4">phone</label>
+                        </span>
+                    </div>
+                    <div class="input__field">
+                        <span class="input__field__box floating">
+                            <textarea class="input" placeholder="textarea" id="floating5"></textarea>
+                            <label for="floating5">Comments</label>
+                        </span>
+                    </div>
+                </div>
+                <pre>
+                    <code class="html">
+    &lt;div class="input__field">
+        &lt;span class="input__field__box floating">
+            &lt;input type="text" name="name" id="floating1" class="input" placeholder="floating">
+            &lt;label for="floating1">Name&lt;/label>
+        &lt;/span>
+    &lt;/div>
+                    </code>
+                </pre>
+                <h3>Checkbox, Radio Examples</h3>
+                <p>체크박스와 라디오 버튼의 예제입니다. 기본 버튼부터 토글 버튼, 텍스트 토글 버튼 등의 스타일을 지원합니다.
+                기본적으로 <code class="code">input</code> 태그에는 <code class="code vio">.chk_input</code> 클래스가, <code class="code">label</code> 태그에는 <code class="code vio">.chk_label</code> 클래스를 필요로 합니다.
+                <code class="code blu">checked</code>에 사용된 아이콘들은 SVG 이미지를 background-image로 활용하여 어느 사이즈에서도 깨짐없이 사용할 수 있습니다.
+                <small class="gry">※ 클래스는 checkbox, radio 공통으로 사용합니다.</small>
+                </p>
+                <div class="sec__example">
+                    <div class="input__field">
+                        <span class="input__field__box">
+                            <input type="checkbox" name="chk" value="default" id="chk1" class="chk_input">
+                            <label for="chk1" class="chk_label">Default Checkbox</label>
+                        </span>
+                        <span class="input__field__box">
+                            <input type="checkbox" name="chk" value="checked" id="chk2" class="chk_input" checked>
+                            <label for="chk2" class="chk_label">Checked Checkbox</label>
+                        </span>
+                    </div>
+                    <div class="input__field">
+                        <span class="input__field__box">
+                            <input type="checkbox" name="chk" value="default" id="chk3" class="chk_input" disabled>
+                            <label for="chk3" class="chk_label">Disabled Checkbox</label>
+                        </span>
+                        <span class="input__field__box">
+                            <input type="checkbox" name="chk" value="checked" id="chk4" class="chk_input" checked disabled>
+                            <label for="chk4" class="chk_label">Disabled Checked Checkbox</label>
+                        </span>
+                    </div>
+                </div>
+                <pre>
+                    <code class="html">
+    &lt;div class="input__field">
+        &lt;span class="input__field__box">
+            &lt;input type="checkbox" name="chk" value="default" id="chk1" class="chk_input">
+            &lt;label for="chk1" class="chk_label">Default Checkbox&lt;/label>
+        &lt;/span>
+        &lt;span class="input__field__box">
+            &lt;input type="checkbox" name="chk" value="checked" id="chk2" class="chk_input" checked>
+            &lt;label for="chk2" class="chk_label">Checked Checkbox&lt;/label>
+        &lt;/span>
+    &lt;/div>
+                    </code>
+                </pre>
+                <div class="sec__example">
+                    <div class="input__field">
+                        <span class="input__field__box">
+                            <input type="radio" name="rad" value="default" id="rad1" class="chk_input">
+                            <label for="rad1" class="chk_label">Default Radio</label>
+                        </span>
+                        <span class="input__field__box">
+                            <input type="radio" name="rad" value="checked" id="rad2" class="chk_input" checked>
+                            <label for="rad2" class="chk_label">Checked Radio</label>
+                        </span>
+                    </div>
+                    <div class="input__field">
+                        <span class="input__field__box">
+                            <input type="radio" name="rad2" value="default" id="rad3" class="chk_input" disabled>
+                            <label for="rad3" class="chk_label">Disabled Radio</label>
+                        </span>
+                        <span class="input__field__box">
+                            <input type="radio" name="rad2" value="checked" id="rad4" class="chk_input" checked disabled>
+                            <label for="rad4" class="chk_label">Disabled Checked Radio</label>
+                        </span>
+                    </div>
+                </div>
+                <pre>
+                    <code class="html">
+    &lt;div class="input__field">
+        &lt;span class="input__field__box">
+            &lt;input type="radio" name="rad" value="default" id="rad1" class="chk_input">
+            &lt;label for="rad1" class="chk_label">Default Radio&lt;/label>
+        &lt;/span>
+        &lt;span class="input__field__box">
+            &lt;input type="radio" name="rad" value="checked" id="rad2" class="chk_input" checked>
+            &lt;label for="rad2" class="chk_label">Checked Radio&lt;/label>
+        &lt;/span>
+    &lt;/div>
+                    </code>
+                </pre>
+                <h3>Text Hidden Labels</h3>
+                <p><code class="code">label</code> 태그에 텍스트가 없이 <code class="code vio">checkbox</code>, <code class="code vio">radio</code> 버튼만을 사용할 때의 예제입니다. <code class="code">input__field__box</code> 요소에 <code class="code">hidden</code> 클래스를 추가해 사용합니다.</p>
+                <div class="sec__example">
+                    <div class="input__field">
+                        <span class="input__field__box hidden">
+                            <input type="checkbox" name="chk" value="default" id="hidden1" class="chk_input">
+                            <label for="hidden1" class="chk_label">Default Checkbox</label>
+                        </span>
+                        <span class="input__field__box hidden">
+                            <input type="checkbox" name="chk" value="checked" id="hidden2" class="chk_input" checked>
+                            <label for="hidden2" class="chk_label">Checked Checkbox</label>
+                        </span>
+                    </div>
+                    <div class="input__field">
+                        <span class="input__field__box hidden">
+                            <input type="radio" name="rad_hid" value="default" id="rad_hid1" class="chk_input">
+                            <label for="rad_hid1" class="chk_label">Default Radio</label>
+                        </span>
+                        <span class="input__field__box hidden">
+                            <input type="radio" name="rad_hid" value="checked" id="rad_hid2" class="chk_input" checked>
+                            <label for="rad_hid2" class="chk_label">Checked Radio</label>
+                        </span>
+                    </div>
+                </div>
+                <h3>Switches button</h3>
+                <p>체크박스를 이용한 토글 버튼 예제입니다. <code class="code">input__field__box</code>에 <code class="code vio">.switch</code> 클래스를 추가해 사용합니다.</p>
+                <div class="sec__example">
+                    <div class="input__field">
+                        <span class="input__field__box switch">
+                            <input type="checkbox" name="switch" value="default" id="swit1" class="chk_input">
+                            <label for="swit1" class="chk_label">Default switch</label>
+                            <span class="message">Default switch checkbox</span>
+                        </span>
+                        <span class="input__field__box switch">
+                            <input type="checkbox" name="switch" value="checked" id="swit2" class="chk_input" checked>
+                            <label for="swit2" class="chk_label">Checked Radio</label>
+                            <span class="message">Checked switch checkbox</span>
+                        </span>
+                    </div>
+                    <div class="input__field">
+                        <span class="input__field__box switch">
+                            <input type="checkbox" name="switch" value="default" id="swit3" class="chk_input" disabled>
+                            <label for="swit3" class="chk_label">Disabled switch</label>
+                            <span class="message">Disabled switch checkbox</span>
+                        </span>
+                        <span class="input__field__box switch">
+                            <input type="checkbox" name="switch" value="checked" id="swit4" class="chk_input" checked disabled>
+                            <label for="swit4" class="chk_label">Disabled Checked Radio</label>
+                            <span class="message">Disabled Checked switch checkbox</span>
+                        </span>
+                    </div>
+                </div>
+                <pre>
+                    <code class="html">
+    &lt;div class="input__field">
+        &lt;span class="input__field__box switches">
+            &lt;input type="checkbox" name="switch" value="default" id="swit1" class="chk_input">
+            &lt;label for="swit1" class="chk_label">Default switch&lt;/label>
+        &lt;/span>
+        &lt;span class="input__field__box switches">
+            &lt;input type="checkbox" name="switch" value="checked" id="swit2" class="chk_input" checked>
+            &lt;label for="swit2" class="chk_label">Checked Radio&lt;/label>
+        &lt;/span>
+    &lt;/div>
+                    </code>
+                </pre>
+                <p>스위치 버튼을 백그라운드를 채우지 않고 아웃라인만 딴 스타일 예제입니다. <code class="code">input__field__box</code>에 <code class="code vio">switch</code> 클래스와 <code class="code vio">line</code> 클래스를 추가해 사용합니다.</p>
+                <div class="sec__example">
+                    <div class="input__field">
+                        <span class="input__field__box switch line">
+                            <input type="checkbox" name="switch2" value="default" id="line1" class="chk_input">
+                            <label for="line1" class="chk_label">Default switch</label>
+                            <span class="message">Default switch checkbox</span>
+                        </span>
+                        <span class="input__field__box switch line">
+                            <input type="checkbox" name="switch2" value="checked" id="line2" class="chk_input" checked>
+                            <label for="line2" class="chk_label">Checked Radio</label>
+                            <span class="message">Checked switch checkbox</span>
+                        </span>
+                    </div>
+                    <div class="input__field">
+                        <span class="input__field__box switch line">
+                            <input type="checkbox" name="switch2" value="default" id="line3" class="chk_input" disabled>
+                            <label for="line3" class="chk_label">Default switch</label>
+                            <span class="message">Disabled switch checkbox</span>
+                        </span>
+                        <span class="input__field__box switch line">
+                            <input type="checkbox" name="switch2" value="checked" id="line4" class="chk_input" checked disabled>
+                            <label for="line4" class="chk_label">Checked Radio</label>
+                            <span class="message">Disabled Checked switch checkbox</span>
+                        </span>
+                    </div>
+                </div>
+                <p>ON / OFF 글씨를 포함한 스위치 버튼 예제입니다. 기본 스위치 스타일보다 슬라이더의 크기가 좀 더 크고, <code class="code">chk_label</code>의 너비를 키우면 보다 많은 내용의 텍스트를 담을 수도 있습니다. 사용할 때에는 <code class="code">input__field__box</code>에 <code class="code vio">switch</code> 클래스와 <code class="code vio">onoff</code> 클래스를 추가해 사용합니다. </p>
+                <div class="sec__example">
+                    <div class="input__field">
+                        <span class="input__field__box switch onoff">
+                            <input type="checkbox" name="onoff" value="default" id="onoff1" class="chk_input" checked>
+                            <label for="onoff1" class="chk_label">ON/OFF Default switch</label>
+                            <span class="message">ON switch checkbox</span>
+                        </span>
+                        <span class="input__field__box switch onoff">
+                            <input type="checkbox" name="onoff" value="default" id="onoff2" class="chk_input">
+                            <label for="onoff2" class="chk_label">ON/OFF Default switch</label>
+                            <span class="message">OFF switch checkbox</span>
+                        </span>
+                    </div>
+                </div>
+                <h3>Select Examples</h3>
+                <p><code class="code">select</code> 태그를 이용한 예제입니다. 기본적으로 <code class="code">select</code> 태그에 <code class="code vio">.select</code> 클래스를 추가해 사용합니다.</p>
+                <div class="sec__example">
+                    <select class="select">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <pre>
+                    <code class="html">
+    &lt;select class="select">
+        &lt;option selected>Open this select menu&lt;/option>
+        &lt;option value="1">One&lt;/option>
+        &lt;option value="2">Two&lt;/option>
+        &lt;option value="3">Three&lt;/option>
+    &lt;/select>
+                    </code>
+                </pre>
+                <h3>Multiple Select</h3>
+                <p>옵션을 다중선택할 수 있는 <code class="code">multiple</code> 속성을 가진 select 예제입니다. <code class="code">disabled</code>와 같이 태그에 <code class="code vio">multiple</code> 속성이 있다면 자동으로 적용됩니다.</p>
+                <div class="sec__example">
+                    <select class="select" multiple>
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <h3>Disabled Select</h3>
+                <div class="sec__example">
+                    <select class="select" disabled>
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <h3>Description field</h3>
+                <p><code class="code">textarea</code>의 스타일 예제입니다. input의 text field 예제와 같이 <code class="code gry">disabled</code> <code class="code blu">focus</code> <code class="code grn">valid</code> <code class="code red">error(required)</code>등의 스타일을 지원합니다.</p>
+                <div class="sec__example">
+                    <div class="input__field">
+                        <span class="input__field__ttl">Default empty</span>
+                        <span class="input__field__box">
+                            <label for="textarea1">Description</label>
+                            <textarea id="textarea1" placeholder="Enter description here..." class="input"></textarea>
+                        </span>
+                    </div>
+                    <div class="input__field">
+                        <span class="input__field__ttl">Disabled empty</span>
+                        <span class="input__field__box">
+                            <label for="textarea2">Description</label>
+                            <textarea id="textarea2" placeholder="Enter description here..." class="input" disabled></textarea>
+                        </span>
+                    </div>
+                    <div class="input__field">
+                        <span class="input__field__ttl">Input</span>
+                        <span class="input__field__box">
+                            <label for="textarea3">Description</label>
+                            <textarea id="textarea3" placeholder="Enter description here..." class="input">CCStrap form 예제입니다.</textarea>
+                        </span>
+                    </div>
+                    <div class="input__field">
+                        <span class="input__field__ttl">Focus</span>
+                        <span class="input__field__box">
+                            <label for="textarea4">Description</label>
+                            <textarea id="textarea4" placeholder="Enter description here..." class="input focus"></textarea>
+                        </span>
+                    </div>
+                    <div class="input__field">
+                        <span class="input__field__ttl">Valid</span>
+                        <span class="input__field__box">
+                            <label for="textarea5">Description</label>
+                            <textarea id="textarea5" placeholder="Enter description here..." class="input valid">CCStrap form 예제입니다.</textarea>
+                        </span>
+                    </div>
+                    <div class="input__field">
+                        <span class="input__field__ttl">Error</span>
+                        <span class="input__field__box">
+                            <label for="textarea6">Description</label>
+                            <textarea id="textarea6" placeholder="Enter description here..." class="input invalid"></textarea>
+                            <span class="message block invalid">※ 필수 입력 사항입니다.</span>
+                        </span>
+                    </div>
+                </div>
+                <h3>File upload custom</h3>
+                <p><code class="code">&lt;input type="file"&gt;</code>를 커스텀한 업로드 버튼 예제입니다. <code class="code">input</code> 에는 <code class="code vio">.file_input</code> 클래스를 추가하고, <code class="code">label</code> 에는 <code class="code vio">.file_label</code> 클래스를 추가해 사용합니다. 버튼 스타일의 경우 <a href="https://pmgkr.github.io/ccstrap/dist/button.html" target="_blank">button demo page</a>를 참고해 적용되었습니다.
+                <small class="gry">※ .btn_primary의 텍스트 컬러가 white로 잡혀있어, file button의 업로드 아이콘도 컬러가 white로 잡혀있습니다. 실제 사용할 때 primary color가 밝은 색이라면 black으로 fill 값을 변경해줘야 합니다.</small></p>
+                <div class="sec__example">
+                    <div class="input__field">
+                        <span class="input__field__box">
+                            <input type="file" name="upload" id="upload1" class="file_input"><label for="upload1" class="btn btn_primary file_label">파일 업로드</label>
+                        </span>
+                        <span class="input__field__box">
+                            <input type="file" name="upload" id="upload2" class="file_input"><label for="upload2" class="btn btn_grayish file_label">파일 업로드</label>
+                        </span>
+                        <span class="input__field__box">
+                            <input type="file" name="upload" id="upload3" class="file_input"><label for="upload3" class="btn btn_light file_label">파일 업로드</label>
+                        </span>
+                    </div>
+                </div>
+                <pre>
+                    <code class="html">
+    &lt;div class="input__field">
+        &lt;span class="input__field__box">
+            &lt;input type="file" name="upload" id="upload1" class="file_input">
+            &lt;label for="upload1" class="btn btn_primary file_label">파일 업로드&lt;/label>
+        &lt;/span>
+        &lt;span class="input__field__box">
+            &lt;input type="file" name="upload" id="upload2" class="file_input">
+            &lt;label for="upload2" class="btn btn_grayish file_label">파일 업로드&lt;/label>
+        &lt;/span>
+        &lt;span class="input__field__box">
+            &lt;input type="file" name="upload" id="upload3" class="file_input">
+            &lt;label for="upload3" class="btn btn_light file_label">파일 업로드&lt;/label>
+        &lt;/span>
+    &lt;/div>
+                    </code>
+                </pre>
+                <h3>Disabled File upload</h3>
+                <p>자주 쓰이진 않겠지만 파일을 업로드할 수 있는 버튼을 <code class="code">disabled</code> 하고 싶다면, <code class="code">&lt;input type="file"&gt;</code> 과 그와 짝인 <code class="code">label</code>에 disabled 속성을 추가해줘야합니다.</p>
+                <div class="sec__example">
+                    <div class="input__field">
+                        <span class="input__field__box">
+                            <input type="file" name="upload" id="upload4" class="file_input" disabled><label for="upload4" class="btn btn_primary file_label" disabled>파일 업로드</label>
+                        </span>
+                        <span class="input__field__box">
+                            <input type="file" name="upload" id="upload5" class="file_input" disabled><label for="upload5" class="btn btn_grayish file_label" disabled>파일 업로드</label>
+                        </span>
+                        <span class="input__field__box">
+                            <input type="file" name="upload" id="upload6" class="file_input" disabled><label for="upload6" class="btn btn_light file_label" disabled>파일 업로드</label>
+                        </span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script>
+        hljs.initHighlightingOnLoad();
+        $(document).ready(function () {
+            $('code.hljs').each(function (i, block) {
+                hljs.lineNumbersBlock(block);
+            });
+        });
+    </script>
+</body>
+
+</html>

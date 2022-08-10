@@ -1,0 +1,296 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1.0, width=device-width">
+ 
+<title>CCstrap__Page Buttons</title>
+<meta name="keywords" content="PMG Publishing Guide">
+<meta name="description" content="PMG Publishing Guide">
+ 
+<meta property="og:type" content="website">
+<meta property="og:title" content="CCstrap__Page Buttons">
+<meta property="og:description" content="CCstrap__Page Buttons">
+<meta property="og:url" content="https://pmgkr.github.io/ccstrap/convention/">
+<meta property="og:image" content="">
+ 
+<link rel="icon" href="../convention/images/favicon.ico?1" type="image/x-icon">
+<link rel="shortcut icon" href="#" type="image/x-icon">
+
+<!-- PAGE CSS -->
+<link href="../convention/css/reset.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="../convention/css/highlight_default.css" rel="stylesheet">
+<link href="../convention/css/night-owl.css" rel="stylesheet">
+<link href="./css/default.css" rel="stylesheet">
+<link href="../convention/css/guide.css" rel="stylesheet">
+
+<!-- JS -->
+<script src="../convention/js/jquery-3.5.1.min.js"></script>
+<script src="../convention/js/highlight.min.js"></script>
+<script src="../convention/js/highlightjs-line-numbers.js"></script>
+<script src="../convention/js/main.js"></script>
+</head>
+<body>
+<div class="wrap">
+    <header>
+        <h1>CCstrap Buttons Guide</h1>
+        <span class="date">ver 1.1 _ 2021.06.23</span>
+    </header>
+    <div data-include="header.html"></div>
+    <div class="container">
+        <section class="section">
+            <h2>Buttons Intro</h2>
+            <p>버튼은 다양한 크기와 상태 등을 나타내며, 폼이나 이벤트 연결 등의 작업에 사용됩니다.
+            ccstrap에서는 사이트의 메인 컬러(primary), 서브 컬러(secondary, tertiary, ...), 긍정적인, 부정적인, 경고 등 다양한 의미를 담은 컬러들과 크기, 링크 버튼 등의 기능을 세분화하여 사용할 수 있습니다.</p>
+
+            <h3>Color Examples</h3>
+            <p>버튼 스타일은 <code class="code">button</code> 태그 혹은 <code class="code">a</code> 태그에 <code class="code">.btn</code> 클래스를 입력하여 사용합니다. <code class="code">hover</code> 시에는 default 컬러보다 12% 어두운 컬러<small>(darken 함수 사용)</small>로 전환됩니다.</p>
+            <ul>
+                <li>메인컬러 : $color_primary <small class="vio">(필수)</small></li>
+                <li>서브컬러(2차) : $color_secondary <small class="vio">(선택)</small></li>
+                <li>서브컬러(3차) : $color_tertiary <small class="vio">(선택)</small></li>
+                <li>상태컬러(긍정) : $color_positive</li>
+                <li>상태컬러(부정) : $color_negative</li>
+                <li>상태컬러(경고) : $color_warning</li>
+                <li>상태컬러(중립 혹은 정보) : $color_neutral</li>
+                <li>컬러(밝은) : $color_light</li>
+                <li>컬러(어두운) : $color_dark</li>
+                <li>컬러(회색) : $color_grayish</li>
+            </ul>
+            <div class="sec__example">
+                <button type="button" class="btn btn_primary">primary</button>
+                <button type="button" class="btn btn_secondary">secondary</button>
+                <button type="button" class="btn btn_tertiary">tertiary</button>
+                <button type="button" class="btn btn_positive">positive</button>
+                <button type="button" class="btn btn_negative">negative</button>
+                <button type="button" class="btn btn_warning">warning</button>
+                <button type="button" class="btn btn_neutral">neutral</button>
+                <button type="button" class="btn btn_light">light</button>
+                <button type="button" class="btn btn_dark">dark</button>
+                <button type="button" class="btn btn_grayish">grayish</button>
+            </div>
+            <pre>
+                <code class="html">
+    &lt;button type="button" class="btn btn_primary">primary btn&lt;/button>
+    &lt;button type="button" class="btn btn_secondary">secondary btn&lt;/button>
+    &lt;button type="button" class="btn btn_tertiary">tertiary btn&lt;/button>
+    &lt;button type="button" class="btn btn_positive">positive btn&lt;/button>
+    &lt;button type="button" class="btn btn_negative">negative btn&lt;/button>
+    &lt;button type="button" class="btn btn_warning">warning btn&lt;/button>
+    &lt;button type="button" class="btn btn_neutral">neutral btn&lt;/button>
+    &lt;button type="button" class="btn btn_light">light btn&lt;/button>
+    &lt;button type="button" class="btn btn_dark">dark btn&lt;/button>
+    &lt;button type="button" class="btn btn_grayish">grayish btn&lt;/button>
+
+                </code>
+            </pre>
+            <h3>Outline Buttons</h3>
+            <p>기본 버튼이 배경색 없이 아웃라인(border)만 있는 버튼의 예제입니다. <code class="code">.btn_<span class="vio">{status}</span>_out</code>로 사용합니다. <small>예 ) btn_primary_out, btn_neutral_out</small>
+            아웃라인 버튼은 <code class="code">hover</code> 시에는 배경색이 채워지는 효과가 있습니다.</p>
+            <div class="sec__example">
+                <button type="button" class="btn btn_primary_out">primary</button>
+                <button type="button" class="btn btn_secondary_out">secondary</button>
+                <button type="button" class="btn btn_tertiary_out">tertiary</button>
+                <button type="button" class="btn btn_positive_out">positive</button>
+                <button type="button" class="btn btn_negative_out">negative</button>
+                <button type="button" class="btn btn_warning_out">warning</button>
+                <button type="button" class="btn btn_neutral_out">neutral</button>
+                <button type="button" class="btn btn_light_out">light</button>
+                <button type="button" class="btn btn_dark_out">dark</button>
+                <button type="button" class="btn btn_grayish_out">grayish</button>
+            </div>
+            <pre>
+                <code class="html">
+    &lt;button type="button" class="btn btn_primary_out">primary btn&lt;/button>
+    &lt;button type="button" class="btn btn_secondary_out">secondary btn&lt;/button>
+    &lt;button type="button" class="btn btn_tertiary_out">tertiary btn&lt;/button>
+    &lt;button type="button" class="btn btn_positive_out">positive btn&lt;/button>
+    &lt;button type="button" class="btn btn_negative_out">negative btn&lt;/button>
+    &lt;button type="button" class="btn btn_warning_out">warning btn&lt;/button>
+    &lt;button type="button" class="btn btn_neutral_out">neutral btn&lt;/button>
+    &lt;button type="button" class="btn btn_light_out">light btn&lt;/button>
+    &lt;button type="button" class="btn btn_dark_out">dark btn&lt;/button>
+    &lt;button type="button" class="btn btn_grayish_out">grayish btn&lt;/button>
+                </code>
+            </pre>
+            <h3>Rounded Buttons</h3>
+            <p>가장자리가 라운드 처리된 버튼의 예제입니다. <code class="code">.btn_<span class="vio">{status}</span></code>클래스와 함께 <code class="code">round</code> 클래스를 추가적으로 사용합니다.</p>
+            <div class="sec__example">
+                <button type="button" class="btn btn_primary round">primary</button>
+                <button type="button" class="btn btn_secondary round">secondary</button>
+                <button type="button" class="btn btn_tertiary round">tertiary</button>
+                <button type="button" class="btn btn_positive round">positive</button>
+                <button type="button" class="btn btn_negative round">negative</button>
+                <button type="button" class="btn btn_warning round">warning</button>
+                <button type="button" class="btn btn_neutral round">neutral</button>
+                <button type="button" class="btn btn_light round">light</button>
+                <button type="button" class="btn btn_dark round">dark</button>
+                <button type="button" class="btn btn_grayish round">grayish</button>
+            </div>
+            <pre>
+                <code class="html">
+    &lt;button type="button" class="btn btn_primary round">primary&lt;/button>
+    &lt;button type="button" class="btn btn_secondary round">secondary&lt;/button>
+    &lt;button type="button" class="btn btn_tertiary round">tertiary&lt;/button>
+    &lt;button type="button" class="btn btn_positive round">positive&lt;/button>
+    &lt;button type="button" class="btn btn_negative round">negative&lt;/button>
+    &lt;button type="button" class="btn btn_warning round">warning&lt;/button>
+    &lt;button type="button" class="btn btn_neutral round">neutral&lt;/button>
+    &lt;button type="button" class="btn btn_light round">light&lt;/button>
+    &lt;button type="button" class="btn btn_dark round">dark&lt;/button>
+    &lt;button type="button" class="btn btn_grayish round">grayish&lt;/button>
+                </code>
+            </pre>
+            <h3>Text Buttons</h3>
+            <p>배경과 아웃라인 없이 텍스트만 있는 버튼 예제입니다. <code class="code">btn</code> 클래스에 <code class="code">.text_<span class="vio">{status}</span></code>클래스를 추가 해 사용합니다.</p>
+            <div class="sec__example">
+                <button type="button" class="btn text_primary">primary</button>
+                <button type="button" class="btn text_secondary">secondary</button>
+                <button type="button" class="btn text_tertiary">tertiary</button>
+                <button type="button" class="btn text_positive">positive</button>
+                <button type="button" class="btn text_negative">negative</button>
+                <button type="button" class="btn text_warning">warning</button>
+                <button type="button" class="btn text_neutral">neutral</button>
+                <button type="button" class="btn text_light">light</button>
+                <button type="button" class="btn text_dark">dark</button>
+                <button type="button" class="btn text_grayish">grayish</button>
+            </div>
+            <pre>
+                <code class="html">
+    &lt;button type="button" class="btn text_primary">primary&lt;/button>
+    &lt;button type="button" class="btn text_secondary">secondary&lt;/button>
+    &lt;button type="button" class="btn text_tertiary">tertiary&lt;/button>
+    &lt;button type="button" class="btn text_positive">positive&lt;/button>
+    &lt;button type="button" class="btn text_negative">negative&lt;/button>
+    &lt;button type="button" class="btn text_warning">warning&lt;/button>
+    &lt;button type="button" class="btn text_neutral">neutral&lt;/button>
+    &lt;button type="button" class="btn text_light">light&lt;/button>
+    &lt;button type="button" class="btn text_dark">dark&lt;/button>
+    &lt;button type="button" class="btn text_grayish">grayish&lt;/button>
+                </code>
+            </pre>
+            <h3>Shadow Buttons</h3>
+            <p>그림자가 있는 버튼으로 보다 입체적인 버튼을 사용할 수 있습니다.</p>
+            <div class="sec__example">
+                <button type="button" class="btn btn_primary_out shadow">primary btn</button>
+                <button type="button" class="btn btn_secondary_out shadow">secondary btn</button>
+                <button type="button" class="btn btn_grayish_out shadow">grayish btn</button>
+            </div>
+            <pre>
+                <code class="html">
+    &lt;button type="button" class="btn btn_primary_out shadow">primary btn&lt;/button>
+    &lt;button type="button" class="btn btn_secondary_out shadow">secondary btn&lt;/button>
+    &lt;button type="button" class="btn btn_grayish_out shadow">grayish btn&lt;/button>
+                </code>
+            </pre>
+            <h3>Sizes</h3>
+            <p>기본 사이즈보다 큰 사이즈의 버튼 <code class="code">.btn_lg</code>과 작은 사이즈의 버튼 <code class="code">.btn_sm</code> 두 가지 사이즈를 지원합니다.</p>
+            <div class="sec__example">
+                <button type="button" class="btn btn_primary btn_lg">Large btn</button>
+                <button type="button" class="btn btn_secondary btn_lg">Large btn</button>
+                <button type="button" class="btn btn_primary btn_sm">Small btn</button>
+                <button type="button" class="btn btn_secondary btn_sm">Small btn</button>
+            </div>
+            <pre>
+                <code class="html">
+    &lt;button type="button" class="btn btn_primary btn_lg">Large btn&lt;/button>
+    &lt;button type="button" class="btn btn_secondary btn_lg">Large btn&lt;/button>
+    &lt;button type="button" class="btn btn_primary btn_sm">Small btn&lt;/button>
+    &lt;button type="button" class="btn btn_secondary btn_sm">Small btn&lt;/button>
+
+                </code>
+            </pre>
+            <h3>Disabled state</h3>
+            <p>버튼에 <code class="code">disabled</code> 속성을 추가한다면 disabled 속성을 갖고있는 버튼은 비활성화됩니다. 호버 및 클릭했을 때 이벤트 트리거로 인식되지 않습니다.</p>
+            <div class="sec__example">
+                <button type="button" class="btn btn_primary" disabled>primary btn</button>
+                <button type="button" class="btn btn_secondary" disabled>secondary btn</button>
+                <button type="button" class="btn btn_grayish" disabled>grayish btn</button>
+                <a href="#" class="btn btn_primary disabled">primary link btn</a>
+            </div>
+            <h3>Block Buttons</h3>
+            <p>버튼은 일반적으로 <code class="code">inline-block</code>의 상태를 기본으로 합니다. 
+            다음은 <code class="code">full-width</code>를 가진 <code class="code">block button</code>을 필요로 하거나, 50%의 가로 사이즈를 가진 버튼 2개를 필요로 할 때의 예제입니다. 
+            
+            <code class="code">button</code> 태그 위에 <code class="code">btn__area</code> 클래스를 가진 부모를 생성한 뒤 버튼에 각각 <code class="code vio">.btn_full</code>, <code class="code vio">.btn_half</code> 클래스를 추가해줍니다.</p>
+            <div class="sec__example">
+                <div class="btn__area">
+                    <button type="button" class="btn btn_primary btn_full">Block button</button>
+                    <button type="button" class="btn btn_secondary btn_full">Block button</button>
+                    <button type="button" class="btn btn_grayish btn_lg btn_full">Block button (Large)</button>
+                </div>
+            </div>
+            <pre>
+                <code class="html">
+    &lt;div class="btn__area">
+        &lt;button type="button" class="btn btn_primary btn_full">Block button&lt;/button>
+        &lt;button type="button" class="btn btn_secondary btn_full">Block button&lt;/button>
+    &lt;/div>
+                </code>
+            </pre>
+            <div class="sec__example">
+                <div class="btn__area">
+                    <button type="button" class="btn btn_tertiary btn_lg btn_half">Half button</button>
+                    <button type="button" class="btn btn_secondary btn_lg btn_half">Half button</button>
+                    <button type="button" class="btn btn_primary btn_lg btn_full">Full button</button>
+                </div>
+            </div>
+            <pre>
+                <code class="html">
+    &lt;div class="btn__area">
+        &lt;button type="button" class="btn btn_primary btn_lg btn_half">Half button&lt;/button>
+        &lt;button type="button" class="btn btn_secondary btn_lg btn_half">Half button&lt;/button>
+        &lt;button type="button" class="btn btn_tertiary btn_lg btn_full">Full button&lt;/button>
+    &lt;/div>
+                </code>
+            </pre>
+            <h3>Buttons align</h3>
+            <p>버튼 정렬은 왼쪽 정렬을 기본으로 합니다. 중앙 정렬 혹은 오른쪽 정렬을 원하는 경우 <code class="code">.btn__area</code>에 <code class="code vio">center</code>, <code class="code vio">right</code> 클래스를 추가해줍니다. 
+            <small class="pur">(※ 사용 시 주의점 : 해당 정렬은 float를 사용하지 않고 inline-block에서 부모 선택자에 text-align을 주어 정렬합니다. 여백을 없애기 위해 부모 선택자에 font-size: 0; 이 들어갔으니, <code class="code">btn__area</code>에 버튼을 제외한 요소들이 추가된다면 font-size를 따로 명명해줘야 합니다.)</small></p>
+            <div class="sec__example">
+                <div class="btn__area">
+                    <button type="button" class="btn btn_grayish_out">왼쪽 정렬 버튼</button>
+                    <button type="button" class="btn btn_grayish_out">왼쪽 정렬 버튼</button>
+                </div>
+                <div class="btn__area center" style="margin:10px 0;">
+                    <button type="button" class="btn btn_grayish_out">중앙 정렬 버튼</button>
+                    <button type="button" class="btn btn_grayish_out">중앙 정렬 버튼</button>
+                </div>
+                <div class="btn__area right" style="margin:10px 0;">
+                    <button type="button" class="btn btn_grayish_out">오른쪽 정렬 버튼</button>
+                    <button type="button" class="btn btn_grayish_out">오른쪽 정렬 버튼</button>
+                </div>
+            </div>
+            <pre>
+                <code class="html">
+    &lt;div class="btn__area">
+        &lt;button type="button" class="btn btn_grayish_out">왼쪽 정렬 버튼&lt;/button>
+        &lt;button type="button" class="btn btn_grayish_out">왼쪽 정렬 버튼&lt;/button>
+    &lt;/div>
+    &lt;div class="btn__area center">
+        &lt;button type="button" class="btn btn_grayish_out">중앙 정렬 버튼&lt;/button>
+        &lt;button type="button" class="btn btn_grayish_out">중앙 정렬 버튼&lt;/button>
+    &lt;/div>
+    &lt;div class="btn__area right">
+        &lt;button type="button" class="btn btn_grayish_out">오른쪽 정렬 버튼&lt;/button>
+        &lt;button type="button" class="btn btn_grayish_out">오른쪽 정렬 버튼&lt;/button>
+    &lt;/div>
+                </code>
+            </pre>
+        </section>
+    </div>
+</div>
+<script>
+hljs.initHighlightingOnLoad();
+$(document).ready(function() {
+    $('code.hljs').each(function(i, block) {
+        hljs.lineNumbersBlock(block);
+    });
+});
+</script>
+</body>
+</html>

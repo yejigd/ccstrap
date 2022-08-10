@@ -1,0 +1,61 @@
+/*
+ * File       : _variables.scss
+ * Author     : PMG Korea (KYJ)
+ * Version    : CCstrap.1.0
+ * Date       : 2021-05-21
+*/
+
+// Colors
+$color_primary          :#0258ff;
+$color_secondary        :#ffcd34;
+$color_tertiary         :#c9c1ab;
+
+$color_negative         :#ff2323;
+$color_warning          :#f0ad4e;
+$color_positive         :#5cb85c;
+$color_neutral          :#5bc0de;
+
+// Typography
+$font_family_sans-serif : 'Roboto', 'Noto Sans KR', sans-serif !default;
+$font_family_serif      : 'Baskerville', "Nanum Myeongjo", serif !default;
+$font_family_base       : $font_family_sans-serif !default;
+
+
+
+$color_black            : #000;
+$color_white            : #fff;
+$color_gray_1           :#444;
+$color_gray_2           :#666;
+$color_gray_3           :#999;
+$color_gray_4           :#ccc;
+$color_gray_5           :#ddd;
+$color_gray_6           :#eaeaea;
+
+$color_light            :#f8f9fa;
+$color_dark             :#212529;
+$color_disable          : #979797;
+
+
+// Font Sizes
+$font_size_base         : 14px !default;
+$font_size_large        : ceil(($font_size_base * 1.25)) !default; // ~18px
+$font_size_small        : ceil(($font_size_base * .85)) !default; // ~12px
+
+$font_size_h1           : floor(($font_size_base * 2.6)) !default; // ~36px
+$font_size_h2           : floor(($font_size_base * 2.15)) !default; // ~30px
+$font_size_h3           : ceil(($font_size_base * 1.7)) !default; // ~24px
+$font_size_h4           : ceil(($font_size_base * 1.25)) !default; // ~18px
+$font_size_h5           : $font_size_base !default;
+$font_size_h6           : ceil(($font_size_base * .85)) !default; // ~12px
+
+
+// Media Query Break Point
+$desktop_wide_width     : 2500px;
+$desktop_full_width     : 1920px;
+$desktop_l_width        : 1400px;
+$desktop_s_width        : 1200px;
+$tablet_l_width         : 1024px;
+$tablet_s_width         : 768px;
+$mobile_l_width         : 480px;
+$mobile_m_width         : 375px;
+$mobile_s_width         : 320px; 

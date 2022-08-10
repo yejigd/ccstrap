@@ -1,0 +1,263 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1.0, width=device-width">
+ 
+<title>CCstrap__Page Alerts</title>
+<meta name="keywords" content="PMG Publishing Guide">
+<meta name="description" content="PMG Publishing Guide">
+ 
+<meta property="og:type" content="website">
+<meta property="og:title" content="CCstrap__Page Alerts">
+<meta property="og:description" content="CCstrap__Page Alerts">
+<meta property="og:url" content="https://pmgkr.github.io/ccstrap/convention/">
+<meta property="og:image" content="">
+ 
+<link rel="icon" href="../convention/images/favicon.ico?1" type="image/x-icon">
+<link rel="shortcut icon" href="#" type="image/x-icon">
+
+<!-- PAGE CSS -->
+<link href="../convention/css/reset.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="../convention/css/highlight_default.css" rel="stylesheet">
+<link href="../convention/css/night-owl.css" rel="stylesheet">
+<link href="./css/default.css" rel="stylesheet">
+<link href="../convention/css/guide.css" rel="stylesheet">
+
+<!-- JS -->
+<script src="../convention/js/jquery-3.5.1.min.js"></script>
+<script src="../convention/js/highlight.min.js"></script>
+<script src="../convention/js/highlightjs-line-numbers.js"></script>
+
+<script src="./js/modules/alerts.js"></script>
+<script src="../convention/js/main.js"></script>
+</head>
+<body>
+<div class="wrap">
+    <header>
+        <h1>CCstrap Page Alerts Guide</h1>
+        <span class="date">ver 1.0 _ 2021.06.23</span>
+    </header>
+    <div data-include="header.html"></div>
+    <div class="container">
+        <section class="section">
+            <h2>Alerts Intro</h2>
+            <p>사이트 이용자에게 경고 메세지나 피드백 메세지 등을 전달할 때 사용하는 알림(Alert)을 커스텀해 사용할 수 있습니다.
+            상황별로 기본 알림, 성공 알림, 위험이나 경고등의 알림, 정보 메세지 등 다양한 상태 알림이 가능합니다.
+            이 예제는 <code class="code">alerts.js</code> 자바스크립도 포함하여 제공되고 있습니다.</p>
+
+            <h3>Alerts Examples</h3>
+            <p>다양한 상태 알림에 대한 예제입니다. 가장 기본적으로 <code class="code">&lt;div&gt;</code> 태그에 <code class="code">.alert</code> 클래스를 사용합니다.
+            상황별에 따라 7가지의 스타일이 제공되며, <code class="code code">.alert</code> 클래스 선언 후 <code class="code vio">.alert_{$color_status}</code> 클래스를 선언해 사용합니다.
+            </p>
+            <ul>
+                <li>메인컬러 : $color_primary <small class="vio">(필수)</small></li>
+                <li>상태컬러(긍정) : $color_positive</li>
+                <li>상태컬러(부정) : $color_negative</li>
+                <li>상태컬러(경고) : $color_warning</li>
+                <li>상태컬러(중립 혹은 정보) : $color_neutral</li>
+                <li>컬러(밝은) : $color_light</li>
+                <li>컬러(어두운) : $color_dark</li>
+                <li>컬러(회색) : $color_grayish</li>
+            </ul>
+            <div class="sec__example">
+                <div class="alert alert_primary">
+                    메인컬러를 사용한 기본 알림창 입니다.
+                </div>
+                <div class="alert alert_positive">
+                    성공(긍정 상황) 알림창 입니다.
+                </div>
+                <div class="alert alert_negative">
+                    위험(부정 상황) 알림창 입니다.
+                </div>
+                <div class="alert alert_warning">
+                    경고(주의 상황) 알림창 입니다.
+                </div>
+                <div class="alert alert_neutral">
+                    중립 혹은 정보(안내 상황) 알림창 입니다.
+                </div>
+                <div class="alert alert_light">
+                    라이트 테마의 알림창 입니다.
+                </div>
+                <div class="alert alert_dark">
+                    다크 테마의 알림창 입니다.
+                </div>
+            </div>
+            <pre>
+                <code class="html">
+    &lt;div class="alert alert_primary">
+        메인컬러를 사용한 기본 알림창 입니다.
+    &lt;/div>
+    &lt;div class="alert alert_positive">
+        성공(긍정 상황) 알림창 입니다.
+    &lt;/div>
+    &lt;div class="alert alert_negative">
+        위험(부정 상황) 알림창 입니다.
+    &lt;/div>
+    &lt;div class="alert alert_warning">
+        경고(주의 상황) 알림창 입니다.
+    &lt;/div>
+    &lt;div class="alert alert_neutral">
+        중립 혹은 정보(안내 상황) 알림창 입니다.
+    &lt;/div>
+    &lt;div class="alert alert_light">
+        라이트 테마의 알림창 입니다.
+    &lt;/div>
+    &lt;div class="alert alert_dark">
+        다크 테마의 알림창 입니다.
+    &lt;/div>
+                </code>
+            </pre>
+            <h3>Alert components</h3>
+            <p>alert에 타이틀과 내용, 닫기 버튼까지 추가할 수 있습니다. 타이틀과 내용, 버튼에 대한 유무는 스크립트 단에서 alert을 호출할 때 결정합니다.
+            얼럿에 닫기 버튼을 추가하기 위해선 <code class="code">alert</code>에 <code class="code vio">alert__dismissible</code> 클래스를 추가해줘야 합니다. 닫기 버튼은 버튼 태그와 함께 <code class="code vio">alert__cls</code> 클래스를 가지고 있어야하며, <code class="code">data-cc-dismiss</code> 데이터 속성에 <code class="code vio">alert</code> 값을 가지고 있어야만 합니다.
+            
+            얼럿에 <code class="code vio">.icon</code> 클래스를 추가하면 해당 얼럿의 상태클래스와 맞는 아이콘이 좌측에 생성됩니다. <code class="code"><small>아이콘 스타일은 아래 예제의 5가지 상태값에만 적용되어 있습니다. (light, dark 테마엔 미적용)</small></code>
+            </p>
+            <div class="sec__example">
+                <div class="alert alert_primary">
+                    <h4 class="alert__ttl">Alert Title</h4>
+                    <p>What is Lorem Ipsum?
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
+                <div class="alert alert_positive alert__dismissible">
+                    <button type="button" class="alert__cls" data-cc-dismiss="alert">닫기</button>
+                    <h4 class="alert__ttl">Alert Title</h4>
+                    <p>What is Lorem Ipsum?
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
+                <div class="alert alert_negative alert__dismissible">
+                    <button type="button" class="alert__cls" data-cc-dismiss="alert">닫기</button>
+                    <h4 class="alert__ttl">Alert Title</h4>
+                    <p>What is Lorem Ipsum?
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
+                <div class="alert alert_warning alert__dismissible">
+                    <button type="button" class="alert__cls" data-cc-dismiss="alert">닫기</button>
+                    <h4 class="alert__ttl">Alert Title</h4>
+                    <p>What is Lorem Ipsum?
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
+                <div class="alert alert_neutral alert__dismissible">
+                    <button type="button" class="alert__cls" data-cc-dismiss="alert">닫기</button>
+                    <h4 class="alert__ttl">Alert Title</h4>
+                    <p>What is Lorem Ipsum?
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
+                <div class="alert alert_light alert__dismissible">
+                    <button type="button" class="alert__cls" data-cc-dismiss="alert">닫기</button>
+                    <h4 class="alert__ttl">Alert Title</h4>
+                    <p>What is Lorem Ipsum?
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
+                <div class="alert alert_dark alert__dismissible">
+                    <button type="button" class="alert__cls" data-cc-dismiss="alert">닫기</button>
+                    <h4 class="alert__ttl">Alert Title</h4>
+                    <p>What is Lorem Ipsum?
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                </div>
+            </div>
+            <div class="sec__example">
+                <div class="alert alert_primary icon alert__dismissible">
+                    <button type="button" class="alert__cls" data-cc-dismiss="alert">닫기</button>
+                    <h4 class="alert__ttl">Primary Alert Title</h4>
+                    <p>작성한 메세지가 노출됩니다.</p>
+                </div>
+                <div class="alert alert_positive icon alert__dismissible">
+                    <button type="button" class="alert__cls" data-cc-dismiss="alert">닫기</button>
+                    <h4 class="alert__ttl">Success!</h4>
+                    <p>작성한 메세지가 노출됩니다.</p>
+                </div>
+                <div class="alert alert_negative icon alert__dismissible">
+                    <button type="button" class="alert__cls" data-cc-dismiss="alert">닫기</button>
+                    <h4 class="alert__ttl">Error!</h4>
+                    <p>작성한 메세지가 노출됩니다.</p>
+                </div>
+                <div class="alert alert_warning icon alert__dismissible">
+                    <button type="button" class="alert__cls" data-cc-dismiss="alert">닫기</button>
+                    <h4 class="alert__ttl">Warning!</h4>
+                    <p>작성한 메세지가 노출됩니다.</p>
+                </div>
+                <div class="alert alert_neutral icon alert__dismissible">
+                    <button type="button" class="alert__cls" data-cc-dismiss="alert">닫기</button>
+                    <h4 class="alert__ttl">Info Message</h4>
+                    <p>작성한 메세지가 노출됩니다.</p>
+                </div>
+            </div>
+            <pre>
+                <code class="html">
+    &lt;div class="alert alert_primary">
+        &lt;h4 class="alert__ttl">Alert Title&lt;/h4>
+        &lt;p>What is Lorem Ipsum?
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry.&lt;/p>
+    &lt;/div>
+    &lt;div class="alert alert_positive alert__dismissible">
+        &lt;button type="button" class="alert__cls" data-cc-dismiss="alert">닫기&lt;/button>
+        &lt;h4 class="alert__ttl">Alert Title&lt;/h4>
+        &lt;p>What is Lorem Ipsum?
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry.&lt;/p>
+    &lt;/div>
+    ...
+    &lt;div class="alert alert_negative icon alert__dismissible">
+        &lt;button type="button" class="alert__cls" data-cc-dismiss="alert">닫기&lt;/button>
+        &lt;h4 class="alert__ttl">Error!&lt;/h4>
+        &lt;p>작성한 메세지가 노출됩니다.&lt;/p>
+    &lt;/div>
+    &lt;div class="alert alert_warning icon alert__dismissible">
+        &lt;button type="button" class="alert__cls" data-cc-dismiss="alert">닫기&lt;/button>
+        &lt;h4 class="alert__ttl">Warning!&lt;/h4>
+        &lt;p>작성한 메세지가 노출됩니다.&lt;/p>
+    &lt;/div>
+    &lt;div class="alert alert_neutral icon alert__dismissible">
+        &lt;button type="button" class="alert__cls" data-cc-dismiss="alert">닫기&lt;/button>
+        &lt;h4 class="alert__ttl">Info Message&lt;/h4>
+        &lt;p>작성한 메세지가 노출됩니다.&lt;/p>
+    &lt;/div>
+                </code>
+            </pre>
+            <h3>Alert popup with button</h3>
+            <p>alert에 버튼을 추가한 팝업 예제입니다. <code class="code">.btn</code>에도 <code class="code">data-cc-dismiss</code> 데이터 속성에 <code class="code vio">alert</code> 속성값을 부여하면 <code class="code">alert__cls</code> 버튼과 같이 얼럿을 닫는 버튼으로 활용할 수 있습니다.</p>
+            <div class="sec__example">
+                <div class="alert alert_positive icon alert__dismissible" style="max-width:440px;">
+                    <button type="button" class="alert__cls" data-cc-dismiss="alert">닫기</button>
+                    <h4 class="alert__ttl">Success Message</h4>
+                    <p>작성한 메세지가 노출됩니다.</p>
+                    <div class="btn__area right">
+                        <button type="button" class="btn text_positive">확인</button>
+                        <button type="button" class="btn text_gryish" data-cc-dismiss="alert">닫기</button>
+                    </div>
+                </div>
+                <div class="alert alert_neutral icon alert__dismissible" style="max-width:440px;">
+                    <button type="button" class="alert__cls" data-cc-dismiss="alert">닫기</button>
+                    <h4 class="alert__ttl">Info Message</h4>
+                    <p>작성한 메세지가 노출됩니다.</p>
+                    <div class="btn__area center">
+                        <button type="button" class="btn btn_neutral_out btn_full">확인</button>
+                    </div>
+                </div>
+                <div class="alert alert_dark alert__dismissible" style="max-width:440px;">
+                    <button type="button" class="alert__cls" data-cc-dismiss="alert">닫기</button>
+                    <h4 class="alert__ttl">Dark theme alert</h4>
+                    <p>작성한 메세지가 노출됩니다.</p>
+                    <div class="btn__area right">
+                        <button type="button" class="btn btn_light_out">확인</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<script>
+hljs.initHighlightingOnLoad();
+$(document).ready(function() {
+    $('code.hljs').each(function(i, block) {
+        hljs.lineNumbersBlock(block);
+    });
+});
+</script>
+</body>
+</html>
